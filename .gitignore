@@ -1,0 +1,32 @@
+# Composer
+/vendor/
+/composer.lock
+
+# Symfony
+/var/
+/vendor/
+/.env
+/.env.local
+/.env.*.local
+/.env.test.local
+/.env.local.php
+/.env.cache
+/phpunit.xml
+/phpunit.xml.dist
+
+# Logs and cache
+/log/
+/cache/
+
+# IDE files
+/.idea/
+/*.iml
+
+# Node
+/node_modules/
+/npm-debug.log
+/yarn-error.log
+
+# Misc
+/.DS_Store
+/.vscode/

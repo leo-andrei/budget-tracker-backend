@@ -1,0 +1,11 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+home:
+    path: /
+    controller: App\Controller\HomeController::index
+    methods: GET
+api_budget_report:
+    path: /api/budget-report
+    controller: App\Controller\BudgetTrackerController::generateReport
+    methods: POST

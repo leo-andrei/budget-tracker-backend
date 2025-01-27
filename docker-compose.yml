@@ -1,0 +1,46 @@
+services:
+    # Mysql database container
+    db:
+        image: mysql
+        container_name: tutorial_db_symfony
+        restart: always
+        volumes:
+            - db-data:/var/lib/mysql
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        networks:
+            - tutorial
+
+    # phpmyadmin container
+    phpmyadmin:
+        image: phpmyadmin
+        container_name: tutorial_phpmyadmin
+        restart: always
+        depends_on:
+            - db
+        ports:
+            - 8080:80
+        environment:
+            PMA_HOST: db
+        networks:
+            - tutorial
+
+    # Symfony apache project container
+    symfony_app:
+        build: docker/php
+        container_name: tutorial_symfony
+        platform: linux/amd64
+        ports:
+          - "8741:80"
+        volumes:
+            - ./docker/php/vhosts:/etc/apache2/sites-enabled
+            - ./:/var/www
+        restart: always
+        networks:
+            - tutorial
+
+networks:
+    tutorial:
+
+volumes:
+    db-data:

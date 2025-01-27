@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <h1>{{ title }}</h1>
+        <p>Welcome to your new Symfony project homepage!</p>
+        <p> Test variable here {{ testVariable|join(', ') }}</p>
+        <p> {% for test in testVariable %} 
+            <a href="#">{{ test }}</a>
+        {% endfor %} </p>
+        <p> Message: {{ message }}</p>
+    </body>
+</html>
